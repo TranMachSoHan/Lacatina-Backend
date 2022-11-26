@@ -10,14 +10,6 @@ module.exports = function(app) {
     next();
   });
 
-  app.get("/api/test/all", controller.allAccess);
-
-  app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
-
-  app.get(
-    "/api/test/staff",
-    [authJwt.verifyToken, authJwt.isStaffs],
-    controller.staffBoard
-  );
+  app.get("/api/test/getWallet", controller.transferCreditToBlockChain);
 
 };
